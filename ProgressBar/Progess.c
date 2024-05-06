@@ -5,13 +5,16 @@ void progressBar(int totalTime)
 {
     const int barWidth = 50;
     int i;
+    float progress;
+
     for (i = 0; i <= totalTime; i++)
     {
-        float progress = (float)i / totalTime;
+        progress = (float)i / totalTime;
         int pos = (int)(barWidth * progress);
 
         printf("[");
-        for (int j = 0; j < barWidth; j++)
+        int j; // Move the declaration of 'j' outside the loop
+        for (j = 0; j < barWidth; j++)
         {
             if (j < pos)
                 printf("=");
@@ -29,15 +32,18 @@ void progressBar(int totalTime)
 
 int main()
 {
-    int times[] = {3, 5, 7}; 
+    int times[] = {3, 5, 7}; // Different times for progress bars
     int numTimes = sizeof(times) / sizeof(times[0]);
 
-    for (int i = 0; i < numTimes; i++)
+    int i; // Move the declaration of 'i' outside the loop
+    for (i = 0; i < numTimes; i++)
     {
         printf("Progress bar for %d seconds:\n", times[i]);
         progressBar(times[i]);
         printf("\n");
     }
+
+    printf("Developed By: Sushank Ghimire\n\n");
 
     return 0;
 }
